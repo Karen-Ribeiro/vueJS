@@ -1,0 +1,24 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <!-- titulo é o nome do atributo -->
+    <p> {{ titulo }} </p>
+
+    <!-- chamando metodo saudacao -->
+    <p> {{ saudacao() }} </p>
+</div>
+
+<script>
+    new Vue({
+        //elemento que a instancia vai controlar
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS'
+        },
+        methods: {
+            saudacao: function() {
+                return this.titulo
+            }
+        }
+    })
+</script>

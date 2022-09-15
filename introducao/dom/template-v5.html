@@ -1,0 +1,33 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <!-- titulo é o nome do atributo -->
+    <!--    v-once é uma diretiva que vai ler e alterar o valor uma única vez 
+            e não vai mais verificar se o valor foi alterado -->
+    <p> {{ v-once:titulo }} </p>
+
+    <!-- chamando metodo saudacao -->
+    <p> {{ saudacao() }} </p>
+
+    <!-- referenciando link -->
+    <!--    v-bind é uma diretiva que serve para fazer a ligação entre algo que está na Vue instance 
+            e algo que está na tag dentro do template   -->
+    <a v-bind:href="link"> Google </a>
+</div>
+
+<script>
+    new Vue({
+        //elemento que a instancia vai controlar
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS',
+            link: 'http://google.com.br'
+        },
+        methods: {
+            saudacao: function() {
+                this.titulo = 'Bom dia'
+                return this.titulo
+            }
+        }
+    })
+</script>

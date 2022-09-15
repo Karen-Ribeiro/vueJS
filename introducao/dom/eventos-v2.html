@@ -1,0 +1,36 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <!-- titulo é o nome do atributo -->
+    <p> {{ contador }} </p>
+
+    <!--    v-on chama uma função quando um evento acontecer,
+            neste caso, incrementa o contador quano o botão for
+            clicado  -->
+    <button v-on:click="somar">  Somar 1  </button>
+
+    <!-- o evento mousemove pega a posição x e y do mouse -->
+    <p v-on:mousemove="atualizarXY"> Mouse: {{x}} e {{y}} </p>
+</div>
+
+<script>
+    new Vue({
+        //elemento que a instancia vai controlar
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0
+        },
+        methods: {
+            somar(){
+                this.contador++
+            },
+            atualizarXY(e) {
+                this.x = event.clientX
+                this.y = event.clientY
+                console.log(e)
+            }
+        }
+    })
+</script>
