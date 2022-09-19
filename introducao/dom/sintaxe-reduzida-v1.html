@@ -3,13 +3,15 @@
 <div id="app">
     <!-- titulo é o nome do atributo -->
     <p> {{ contador }} </p>
-    <p> {{ contador > 10 ? 'Maior que 10' : 'Menor do que 10'}} </p>
 
     <!--    v-on chama uma função quando um evento acontecer,
             neste caso, incrementa o contador quano o botão for
             clicado  -->
-    <button v-on:click="somar(1, $event)">Somar 1</button>
+    <!-- Você pode substituir o v-on por @ -->
+    <button @click="somar">  Somar 1  </button>
 
+    <!-- Você pode substituir o v-bind por : -->
+    <input type="text" v-bind:value="contador">
 </div>
 
 <script>
@@ -17,12 +19,11 @@
         //elemento que a instancia vai controlar
         el: '#app',
         data: {
-            contador: 0,
+            contador: 0
         },
         methods: {
-            somar(passo, event){
-                console.log(passo, event)
-                this.contador += passo
+            somar(){
+                this.contador++
             }
         }
     })
